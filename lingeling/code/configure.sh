@@ -243,6 +243,7 @@ fi
 
 [ $chksol = undefined ] && chksol=$check
 [ $static = yes ] && CFLAGS="$CFLAGS -static"
+[ $static = no ] && CFLAGS="$CFLAGS -shared -fPIC"
 [ $profile = yes ] && CFLAGS="$CFLAGS -pg"
 [ $coverage = yes ] && CFLAGS="$CFLAGS -ftest-coverage -fprofile-arcs"
 [ $other = none ] || CFLAGS="$CFLAGS $other"

@@ -9,14 +9,14 @@ LMHS_CPPFLAGS	+=	-DGITHASH=$(GIT_HASH) -DGITDATE=$(GIT_DATE)
 MIP	?=	cplex
 
 # make SAT=lingeling to use lingeling instead of Minisat
-SAT	?=	minisat
+SAT	?=	lingeling
 
 # ugly hack, exclude coprocessor main due to namespace collision
 COPROCESSOR_OBJS	=	$(shell find coprocessor -iname '*.o' | grep -v /main)
 
 OBJFILES	=	obj/Solver.o obj/Main.o obj/WCNFParser.o obj/ArgsParser.o obj/ProblemInstance.o \
 	obj/NonoptHS.o obj/LMHS_C_API.o obj/GlobalConfig.o obj/Util.o obj/CoprocessorInterface.o \
-	obj/VarMapper.o obj/LMHS_CPP_API.o
+	obj/VarMapper.o obj/LMHS_CPP_API.o obj/ipasir.o
 
 LMHS_CPPFLAGS	+=	-std=c++11 -pthread -fPIC -m64 \
 	-D __STDC_LIMIT_MACROS -D __STDC_FORMAT_MACROS -Icoprocessor/include

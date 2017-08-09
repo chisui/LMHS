@@ -48,7 +48,7 @@ ProblemInstance::ProblemInstance(unsigned nClauses, double top, double* weights,
     : cfg(GlobalConfig::get())
 {
   init();
-
+  printf("ProblemInstance()\n");
   vector<vector<int>> tmp_clauses;
 
   unsigned i = 0, j = 0;
@@ -62,9 +62,12 @@ ProblemInstance::ProblemInstance(unsigned nClauses, double top, double* weights,
     ++i;
     ++j;
   }
+  printf("ProblemInstance() max_var=%d\n", max_var);
 
   for (auto cl : tmp_clauses)
     for (int i : cl) max_var = max(i, max_var);
+
+  printf("ProblemInstance() again? max_var=%d\n", max_var);
 
   for (i = 0; i < tmp_clauses.size(); ++i) {
     if (weights[i] < top) {
@@ -73,6 +76,8 @@ ProblemInstance::ProblemInstance(unsigned nClauses, double top, double* weights,
       addHardClause(tmp_clauses[i]);
     }
   }
+
+  printf("ProblemInstance()done\n");
 }
 
 ProblemInstance::ProblemInstance(std::istream& wcnf_in)

@@ -3,6 +3,7 @@
 #include "Util.h"
 #include "GlobalConfig.h"
 
+#include <cmath>
 #include <algorithm>
 #include <istream>
 #include <ostream>

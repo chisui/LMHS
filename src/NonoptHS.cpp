@@ -1,5 +1,6 @@
 #include "NonoptHS.h"
 #include "Util.h"
+#include <cmath>
 #include <algorithm>  // std::sort, std::reverse, std::count
 #include <float.h>    // DBL_MAX
 

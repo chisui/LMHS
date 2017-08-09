@@ -82,6 +82,7 @@ int main(int argc, char **argv) {
 	// Getting a solution from the MAXSAT solver:
 	//
 	solution = LMHS_getSolution();
+
 	printSolution(solution);
 
 	//

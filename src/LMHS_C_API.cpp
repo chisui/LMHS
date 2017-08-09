@@ -93,8 +93,9 @@ void _processSolution(double solution_weight, vector<int> & solution_vec) {
 MaxsatSol * LMHS_getSolution() {
   vector<int> solution_vec;
   double solution_weight = 0;
-  if (solver->hardClausesSatisfiable())
+  if (solver->hardClausesSatisfiable()) {
     solution_weight = solver->solveMaxHS(solution_vec);
+  }
   _processSolution(solution_weight, solution_vec);
   return &currentMaxsatSol;
 }
